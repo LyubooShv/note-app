@@ -1,0 +1,17 @@
+.headerContainer{
+    display: flex; 
+    align-items: center;
+    background: rgb(241, 241, 194);
+    height: 60px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.addNoteBtn{    
+padding: 10px;
+}
+.addNoteTitle{
+position: absolute;
+width: 100%;
+display: flex;
+justify-content: center;
+}
