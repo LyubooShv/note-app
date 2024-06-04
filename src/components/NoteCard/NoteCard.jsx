@@ -1,10 +1,11 @@
 import React, {useContext} from 'react';
+import { Link } from "react-router-dom";
 import { NotesListContext } from "../../context/NotesList-context";
 import {Box, Typography, Button, Card, CardActions, CardContent} from '@mui/material';
 import {styles} from "./NoteCard-styles"
 
 export default function NoteCard({title, text, noteIndex}) {
-  const {deleteNote} = useContext(NotesListContext)
+  const {deleteNote, takeCurrentNoteInfo} = useContext(NotesListContext)
   return (
     <Box>
       <Card variant="elevation" style={styles.cardContainer}>
@@ -17,7 +18,7 @@ export default function NoteCard({title, text, noteIndex}) {
           </CardContent>
           <CardActions style={styles.cardActions}>
             <Button size="small" style={{color:"red"}} onClick={()=>deleteNote(noteIndex)}>Remove</Button>
-            <Button size="small">Open</Button>
+            <Link to="/edit-note" onClick={()=>takeCurrentNoteInfo(title, text, noteIndex)} style={{textDecoration: "none"}}>Open</Link>
           </CardActions>
         </React.Fragment>
       </Card>

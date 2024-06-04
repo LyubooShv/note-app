@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
 import NotesListProvider from "./context/NotesList-context"
 import NotesList from "./components/NotesList/NotesList"
 import Header from "./components/Header/Header"
@@ -6,15 +7,19 @@ import "./App.css"
 
 function App() {
   return (
-  <NotesListProvider>  
-    <div className="mainContainer">
-        <Header/>
-        <div className="noteContainer">
-          <NotesList/>
-          <CurrentNote/>
-        </div>
-    </div>
-  </NotesListProvider>
+    <BrowserRouter>
+      <NotesListProvider>
+        <div className="mainContainer">
+          <Header/>
+          <div className="noteContainer">
+            <Routes>
+              <Route path="/" element={<NotesList/>}/>
+              <Route path="/edit-note" element={<CurrentNote/>}/>
+            </Routes>
+          </div>
+       </div> 
+      </NotesListProvider>
+    </BrowserRouter>
   );
 }
 
