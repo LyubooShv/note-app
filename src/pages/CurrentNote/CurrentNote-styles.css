@@ -1,0 +1,29 @@
+.currentNoteContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+.currentNoteTitle{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+.currentNoteTitle input {
+    border: 1px solid;
+    background: rgb(236, 247, 120);
+}
+.currentNoteText{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 300px;
+}
+.currentNoteText textarea{
+    background: rgb(236, 247, 120);
+}
+.currentNoteBtn{
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    padding-top: 5px;
+}
