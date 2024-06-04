@@ -27,11 +27,14 @@ export default function BasicModal({open, handleClose}) {
         setNoteInfo({title:"",text:""});
         handleClose();
     }
+    const closeModal = () => {
+        setNoteInfo({title:"",text:""});
+        handleClose();
+    }
   return (
     <Box>
       <Modal
         open={open}
-        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -40,9 +43,14 @@ export default function BasicModal({open, handleClose}) {
             <input style={{margin:"10px 0"}} onChange={(e)=>addTitle(e)}/>
             <label>Text:</label>
             <textarea style={{height:"100%"}} onChange={(e)=>addText(e)}/>
-            <button style={{width:"50px", margin:" 5px 0"}} onClick={addNote}>
-                Save
-            </button>
+            <div>
+                <button style={{width:"50px", margin:" 5px"}} onClick={addNote}>
+                    Save
+                </button>
+                <button style={{width:"50px", margin:" 5px 0"}} onClick={closeModal}>
+                    Close
+                </button>
+            </div>
         </Box>
       </Modal>
     </Box>

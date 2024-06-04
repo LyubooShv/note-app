@@ -11,13 +11,18 @@ const NotesListProvider = ({ children }) => {
   const [notes, setNotes] = useState([]);
 
   const createNote = (title, text) => {
-    const notesList = [...notes];
+    const savedNotes = JSON.parse(localStorage.getItem("notesList"));
+    const notesList = [...savedNotes];
     notesList.push({title, text});
     setNotes(notesList);
+    localStorage.setItem("notesList", JSON.stringify(notesList));
   };
 
   const deleteNote = (currentNote) => {
-    setNotes(notes.filter((note, index) => index !== currentNote));
+    const savedNotes = JSON.parse(localStorage.getItem("notesList"));
+    const notesList = savedNotes.filter((note, index) => index !== currentNote)
+    setNotes(notesList);
+    localStorage.setItem("notesList", JSON.stringify(notesList));
   };
 
   const updateNote = (e) => {
@@ -26,8 +31,8 @@ const NotesListProvider = ({ children }) => {
 
 
   useEffect(() => {
-    // console.log(notes);
-  }, []);
+    console.log(notes);
+  }, [notes]);
 
   return (
     <NotesListContext.Provider
