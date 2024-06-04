@@ -3,10 +3,6 @@ import { NotesListContext } from "../context/NotesList-context";
 import {Box, Typography, Modal} from '@mui/material';
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
   width: 600,
   height:400,
   display:"flex",
@@ -32,11 +28,12 @@ export default function BasicModal({open, handleClose}) {
         handleClose();
     }
   return (
-    <Box>
+    <Box >
       <Modal
         open={open}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        style={{display:"flex", justifyContent:"center", alignItems:"center"}}
       >
         <Box sx={style}>
             <label>Title:</label>

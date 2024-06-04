@@ -3,3 +3,9 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+.notesListPageContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
