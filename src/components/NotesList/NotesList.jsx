@@ -34,7 +34,7 @@ function NotesList() {
           <NoteCard key={index} title={note?.title} text={note?.text} noteIndex={index}/>
           ) : "No Notes"}
         </div>
-        <Pagination count={paginationPageCount} page={page} onChange={handleChange} color="primary" />
+        { savedNotes?.length ? <Pagination count={paginationPageCount} page={page} onChange={handleChange} color="primary" /> : ""}
       </div>
     );
   }
